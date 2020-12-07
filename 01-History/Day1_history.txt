@@ -1,0 +1,71 @@
+    1  ls
+    2  git clone https://github.com/amitvashisttech/K8s-docker-ericsson-2020-Dec-07.git
+    3  ls
+    4  cd K8s-docker-ericsson-2020-Dec-07/
+    5  ls
+    6  mkdir 00-Setup
+    7  ls
+    8  cd 00-Setup/
+    9  ls
+   10  vim install-docker.sh
+   11  ls
+   12  chmod +x install-docker.sh 
+   13  ./install-docker.sh 
+   14  ls
+   15  cd ..
+   16  ls
+   17  git config credential.helper store
+   18  git add . ; git commit -m "00 Docker Setup"; git push 
+   19  ls
+   20  cd ..
+   21  ls
+   22  history 
+   23  docker version 
+   24  systemctl status docker
+   25  ls
+   26  docker images 
+   27  docker container ls 
+   28  docker pull ubuntu:16.04
+   29  docker images 
+   30  docker run -it busybox 
+   31  docker images 
+   32  docker pull ubuntu:16.04
+   33  docker run -it ubuntu:16.04
+   34  hostname
+   35  docker container ls 
+   36  docker run -it ubuntu:16.04
+   37  docker container ls 
+   38  docker container ls -a
+   39  history 
+   40  docker run -it ubuntu:16.04
+   41  docker ps 
+   42  docker attach f47239cd36fb        
+   43  docker ps 
+   44  docker attach 657c17943aee        
+   45  ls
+   46  docker ps 
+   47  docker exec ps -ef f47239cd36fb                
+   48  docker exec -it ps -ef f47239cd36fb                
+   49  docker exec -it f47239cd36fb   ps -ef 
+   50  docker exec -it f47239cd36fb cat Hello.txt
+   51  docker exec -it 657c17943aee  cat Hello.txt
+   52  docker exec -it 4cdc608473e2          cat Hello.txt
+   53  docker ps 
+   54  docker run -it --name Test-AppA-node1 ubuntu:16.04
+   55  docker run -it --name Test-AppA-node2 ubuntu:16.04
+   56  docker run -it --name Test-AppB-node2 ubuntu:16.04
+   57  docker run -it --name Test-AppB-node1 ubuntu:16.04
+   58  ls
+   59  docker ps 
+   60  docker attach Test-AppB-node1
+   61  docker exec -it Test-AppB-node1  ps -ef 
+   62  docker exec -it Test-AppB-node1 hostname
+   63  docker exec -it Test-AppB-node1 ls -ltr 
+   64  ls
+   65  cd K8s-docker-ericsson-2020-Dec-07/
+   66  ls
+   67  mkdir 01-History
+   68  ls
+   69  cd 01-History/
+   70  ls
+   71  history > Day1_history.txt
