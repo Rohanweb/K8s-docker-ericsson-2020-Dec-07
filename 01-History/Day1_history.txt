@@ -275,3 +275,31 @@
   275  docker exec -it test-apache-3 grep apache2 /root/.bashrc
   276  ls
   277  history > 01-History/Day1_history.txt 
+  278  git add . ; git commit -m "01 Docker History"; git push 
+  279  docker exec -it test-apache-3 grep apache2 /root/.bashrc
+  280  ls
+  281  docker ps 
+  282  docker run -itd --name test-apache-4 -p 80:80 ubuntu-apache-test-image:v1 
+  283  docker run -itd --name test-apache-5 -p 80:80 ubuntu-apache-test-image:v1 
+  284  docker ps 
+  285  netstat -tulnp
+  286  ls
+  287  netstat -tulnp 
+  288  netstat -tulnp  | grep -i docker
+  289  docker ps 
+  290  docker run -itd --name test-apache-7 -p 443:80 ubuntu-apache-test-image:v1 
+  291  docker ps 
+  292  netstat -tulnp  | grep -i docker
+  293  docker attach test-apache-7
+  294  ls
+  295  pwd
+  296  docker run -itd -v /root/K8s-docker-ericsson-2020-Dec-07:/var/www/html/demo4 --name test-apache-8 -p 443:80 ubuntu-apache-test-image:v1 
+  297  docker ps 
+  298  ls
+  299  vim Hello.html
+  300  ls
+  301  cd ..
+  302  ls
+  303  cd K8s-docker-ericsson-2020-Dec-07/
+  304  ls
+  305  history > 01-History/Day1_history.txt 
