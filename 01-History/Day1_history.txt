@@ -69,3 +69,209 @@
    69  cd 01-History/
    70  ls
    71  history > Day1_history.txt
+   72  cd ..
+   73  l
+   74  git add . ; git commit -m "01 Docker History"; git push 
+   75  git pull 
+   76  docker exec -it Test-AppB-node1 hostname
+   77  docker exec -it Test-AppB-node1 'echo "Welcome" > any.txt'
+   78  docker exec -it Test-AppB-node1 '/bin/echo "Welcome" > any.txt'
+   79  docker exec -it Test-AppB-node1 echo "Welcome" > any.txt
+   80  docker exec -it Test-AppB-node1 cat any.txt
+   81  docker exec -it Test-AppB-node1 mkidr amit
+   82  docker exec -it Test-AppB-node1 mkdir amit
+   83  docker exec -it Test-AppB-node1 ls  amit
+   84  docker exec -it Test-AppB-node1 ls  -ltr 
+   85  docker exec -it Test-AppB-node1 `echo "Welcome" > any.txt`
+   86  docker exec -it Test-AppB-node1 `echo "Welcome" > any.txt'
+   87  docker exec -it Test-AppB-node1 'echo "Welcome" > any.txt'
+   88  docker exec -it Test-AppB-node1 '/bin/echo "Welcome" > any.txt'
+   89  docker exec -it Test-AppB-node1 "/bin/echo "Welcome" > any.txt"
+   90  docker exec -it Test-AppB-node1 "echo "Welcome" > any.txt"
+   91  ls
+   92  echo "################### Demo 2 #######################"
+   93  ls
+   94  docker ps -a
+   95  docker stop Test-AppB-node1
+   96  docker kill Test-AppB-node2
+   97  docker ps -a
+   98  docker ps 
+   99  docker ps -a
+  100  docker ps -aq
+  101  docker kill $(docker ps -aq)
+  102  docker ps 
+  103  docker ps -a
+  104  docker rm 8b9ae124fc18        
+  105  docker ps -a
+  106  docker rm $(docker ps -aq)
+  107  docker ps -a 
+  108  docker ps 
+  109  docker images 
+  110  docker rmi 219ee5171f80        
+  111  docker images 
+  112  ls
+  113  docker run -it --name Test-AppB-node1 ubuntu:16.04
+  114  docker ps 
+  115  docker kill Test-AppB-node1
+  116  docker ps 
+  117  docker ps -a
+  118  docker start Test-AppB-node1
+  119  docker ps 
+  120  docker attach Test-AppB-node1
+  121  ls
+  122  docker ps 
+  123  docker inspect Test-AppB-node1
+  124  docker run -it --name Test-AppB-node2 ubuntu:16.04
+  125  docker inspect Test-AppB-node2
+  126  ls
+  127  cd /var/lib/docker/
+  128  ls
+  129  cd containers/
+  130  ls
+  131  docker ps 
+  132  cd 75ec464601793a2a35af09180ed3c1e22df518e0945a22d4b20ab8678034c2c1/
+  133  ls
+  134  cat hostname 
+  135  cat hosts 
+  136  vim hosts 
+  137  ls
+  138  vim resolv.conf
+  139  ls
+  140  cd ..
+  141  ls
+  142  cd ..
+  143  ls
+  144  cd image/
+  145  ls
+  146  cd overlay2/
+  147  ls
+  148  cd imagedb/
+  149  ls
+  150  cd content/
+  151  ls
+  152  cd sha256/
+  153  ls
+  154  cd 
+  155  docker ps 
+  156  docker attach Test-AppB-node2
+  157  cd - 
+  158  ls
+  159  cd ../../../../
+  160  ls
+  161  cd ../
+  162  ls
+  163  cd containers/75ec464601793a2a35af09180ed3c1e22df518e0945a22d4b20ab8678034c2c1/
+  164  ls
+  165  cat hosts 
+  166  cd mounts/
+  167  ls
+  168  cd ..
+  169  ls
+  170  cd .
+  171  ls
+  172  cat hosts 
+  173  cd ..
+  174  ls
+  175  cd 923c29575077d5e9bb00c897629993b63607c543f8f5693ad164a501db1df8be/
+  176  ls
+  177  cat hosts 
+  178  ls
+  179  cd ..
+  180  ls
+  181  cd ..
+  182  cd 
+  183  ls
+  184  docker ps 
+  185  docker stop 75ec46460179 
+  186  docker start 75ec46460179 
+  187  docker attach 75ec46460179 
+  188  ls
+  189  pwd
+  190  cd K8s-docker-ericsson-2020-Dec-07/
+  191  ls
+  192  pwd
+  193  docker run -it -v /root/K8s-docker-ericsson-2020-Dec-07:/demo3 --name Test-AppB-node3 ubuntu:16.04
+  194  ls
+  195  cat hello.txt 
+  196  hostname
+  197  hostname >> hello.txt 
+  198  date >> hello.txt 
+  199  ls
+  200  cat hello.txt 
+  201  docker attach Test-AppB-node3
+  202  ls
+  203  docker ps 
+  204  docker inspect Test-AppB-node3
+  205  ls
+  206  cat hello.txt 
+  207  history 
+  208  ls
+  209  docker ps 
+  210  docker kill $(docker ps -q) 
+  211  docker rm $(docker ps -q) 
+  212  docker rm $(docker ps -aq) 
+  213  ls
+  214  cat hello.txt 
+  215  docker run -it --name Test-Apache-node1 ubuntu:16.04
+  216  docker inspect f81a69999fc7
+  217  curl 172.17.0.2
+  218  docker attach f81a69999fc7
+  219  curl 172.17.0.2
+  220  curl 172.17.0.2/hello.html
+  221  docker run -it --name Test-Apache-node2 centos:7
+  222  docker ps 
+  223  docker inspect Test-Apache-node2
+  224  curl 172.17.0.3/hello.html
+  225  curl 172.17.0.3
+  226  docker attach Test-Apache-node2
+  227  curl 172.17.0.3
+  228  curl 172.17.0.2
+  229  ls
+  230  history 
+  231  ls
+  232  apt-get update ; apt-get install apache2 -y
+  233  hisr
+  234  history 
+  235  ls
+  236  docker ps 
+  237  docker attach Test-Apache-node1
+  238  ls
+  239  docker ps 
+  240  docker commit -p -m "My First Apache Image" Test-Apache-node1 ubuntu-apache-test-image:v1
+  241  docker ps 
+  242  curl 172.17.0.2/hello.html
+  243  docker images 
+  244  docker run -it ubuntu-apache-test-image:v1 
+  245  docker ps 
+  246  docker inspect a1667d03637c        
+  247  curl 172.17.0.4
+  248  curl 172.17.0.4/hello.html
+  249  docker run -it --name test-apache-1 ubuntu-apache-test-image:v1 
+  250  docker run -itd --name test-apache-2 ubuntu-apache-test-image:v1 
+  251  docker run -itd --name test-apache-3 ubuntu-apache-test-image:v1 
+  252  docker run -itd --name test-apache-4 ubuntu-apache-test-image:v1 
+  253  docker ps 
+  254  curl 172.17.0.5/hello.html
+  255  curl 172.17.0.6/hello.html
+  256  curl 172.17.0.7/hello.html
+  257  curl 172.17.0.8/hello.html
+  258  curl 172.17.0.9/hello.html
+  259  docker attach test-apache-4
+  260  curl 172.17.0.9/hello.html
+  261  curl 172.17.0.8/hello.html
+  262  curl 172.17.0.7/hello.html
+  263  history 
+  264  docker attach test-apache-4
+  265  history 
+  266  docker exec -it test-apache-4 grep -i apache2 /root/.bashrc
+  267  docker exec -it test-apache-4 "grep -i apache2 /root/.bashrc"
+  268  docker attach test-apache-4
+  269  docker exec -it test-apache-3 "grep -i apache2 /root/.bashrc"
+  270  docker ps 
+  271  docker attach test-apache-1
+  272  docker exec -it test-apache-3 "grep apache2 /root/.bashrc"
+  273  docker exec -it test-apache-3 grep apache2 /root/.bashrc
+  274  history 
+  275  docker exec -it test-apache-3 grep apache2 /root/.bashrc
+  276  ls
+  277  history > 01-History/Day1_history.txt 
