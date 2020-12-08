@@ -443,3 +443,43 @@
   443  cd ..
   444  ls
   445  history > 01-History/Day2_history.txt 
+  446  cd ..
+  447  ls
+  448  git add . ; git commit -m "Day2 History"; git push 
+  449  ls
+  450  cd 01-Docker/
+  451  ls
+  452  cd 02-Dockerfile/
+  453  l
+  454  mkdir pythonwebapp
+  455  ls
+  456  dc pythonwebapp/
+  457  ls
+  458  cd pythonwebapp/
+  459  ls
+  460  vim app.py
+  461  ls
+  462  vim req.txt
+  463  ls
+  464  chmod +x app.py 
+  465  ls
+  466  vim Dockerfile
+  467  ls
+  468  docker build -t mypywebapp:v1 .
+  469  docker images
+  470  docker run -d -P mypywebapp:v1 
+  471  docker ps 
+  472  docker ps -a
+  473  docker log a1d99f9b77a6        
+  474  docker logs a1d99f9b77a6        
+  475  ls
+  476  vim Dockerfile 
+  477  docker build -t mypywebapp:v2 .
+  478  docker run -d -P mypywebapp:v2 
+  479  docker ps 
+  480  ls
+  481  cd ..
+  482  ls
+  483  cd ..
+  484  ls
+  485  history > 01-History/Day2_history.txt 
