@@ -13,9 +13,5 @@ RUN apt-get install apache2 -y
 # Custome Hello World Web Page.
 COPY Hello.html /var/www/html/hello.html
 
-# My Service Will Expose on the below Port
-EXPOSE 80
-EXPOSE 3306
-
 # Excute the Service
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"] 

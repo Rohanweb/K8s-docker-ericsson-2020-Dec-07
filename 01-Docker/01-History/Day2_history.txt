@@ -351,3 +351,95 @@
   351  cd ..
   352  ls
   353  history > 01-History/Day2_history.txt 
+  354  ls
+  355  cd ../
+  356  ls
+  357  git add . ; git commit -m "Day2 History"; git push 
+  358  ls
+  359  cat 01-Docker/02-Dockerfile/apache/Dockerfile 
+  360  docker ps 
+  361  git config --list 
+  362  ls
+  363  cd 01-Docker/
+  364  ls
+  365  cd 02-Dockerfile/
+  366  ls
+  367  cd apache/
+  368  ls
+  369  mv Dockerfile Dockerfile-v1
+  370  ls
+  371  cp -rf Dockerfile-v1 Dockerfile
+  372  ls
+  373  vim welcome.html
+  374  ls
+  375  cp -rf ../../Hello.html . 
+  376  ls
+  377  cat Hello.html 
+  378  vim Hello.html 
+  379  ls
+  380  cat Hello.html 
+  381  vim Dockerfile
+  382  ls
+  383  cp -rf Dockerfile /tmp/
+  384  cd /tmp/
+  385  ls
+  386  docker build -t mytestapache-image:v2 .
+  387  cd - 
+  388  ls
+  389  docker build -t mytestapache-image:v2 -f /tmp/Dockerfile .
+  390  docker images 
+  391  docker run -d mytestapache-image:v2
+  392  docker ps 
+  393  docker inspect 72b4c8622085        
+  394  curl 172.17.0.3
+  395  curl 172.17.0.3/hello.html
+  396  ls
+  397  docker ps 
+  398  netstat -tulnp 
+  399  netstat -tulnp | grep -i 80
+  400  netstat -tulnp | grep -i 443
+  401  docker run -d -p 80:80 mytestapache-image:v2
+  402  docker sp 
+  403  docker ps
+  404  ls
+  405  cp -rf Dockerfile Dockerfile-v2
+  406  ls
+  407  vim Dockerfile
+  408  ls
+  409  docker build -t mytestapache-image:v3 .
+  410  docker ps 
+  411  docker run -d  mytestapache-image:v3
+  412  docker ps 
+  413  docker run -d -p 443:80 mytestapache-image:v3
+  414  docker ps 
+  415  docker run -d -P mytestapache-image:v3
+  416  docker ps 
+  417  curl localhost:32768
+  418  curl localhost:32768/hello.html
+  419  docker ps 
+  420  ls
+  421  cp -rf Dockerfile Dockerfile-v3
+  422  ls
+  423  vim Hello.html 
+  424  ls
+  425  vim Dockerfile
+  426  docker build -t mytestapache-image:v4 .
+  427  docker images
+  428  docker run -d -P mytestapache-image:v4
+  429  docker ps
+  430  curl localhost:32770/hello.html
+  431  curl localhost:32769/hello.html
+  432  telnet localhost 32769
+  433  telnet localhost 32770
+  434  ls
+  435  docker ps 
+  436  curl localhost:32770/hello.html
+  437  ls
+  438  docker ps 
+  439  cd ..
+  440  l
+  441  sc d..
+  442  l
+  443  cd ..
+  444  ls
+  445  history > 01-History/Day2_history.txt 
