@@ -36,7 +36,7 @@ Note :
 ```
 vagrant.exe ssh master
 sudo su - 
-git clone https://github.com/amitvashisttech/k8s-docker-vmware-08-June-2020.git
+git clone To https://github.com/amitvashisttech/K8s-docker-ericsson-2020-Dec-07.git
 cd k8s-docker-vmware-08-June-2020/02-K8s/01-Setup/
 sh install-kubernetes.sh
 
