@@ -25,7 +25,10 @@ apt-get update
 apt-get install -y kubelet=1.18.0-00 kubeadm=1.18.0-00 kubectl=1.18.0-00
 
 echo "******************* Deploying kubernetes ***********************"
-kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address="10.128.0.3" 
+
+# Fix Me - Update the "apiserver-advertise-address" with your master node ip.
+
+kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address="10.128.0.7" 
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 
