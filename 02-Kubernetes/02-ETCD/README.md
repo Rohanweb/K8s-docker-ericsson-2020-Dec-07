@@ -1,28 +1,24 @@
-# Creating out First App
+# K8s Datastore - ETCD
 
-## Check the health of Cluster
+## Check the status of ETCD
 ```
-kubectl get nodes 
-```
-
-## Deploy Nginx App
-```
-kubectl run hello-k8s --image=nginx --port=80
+kubectl get pods -n kube-system | grep -i  etcd
 ```
 
-## Check the status of PODs 
+## Let explore ETCD POD
+```
+kubectl exec -it etcd-kmaster -n kube-system   -- /bin/sh
+```
+
+## Check the ETCD Status
 ```  
-kubectl get pods 
-kubectl describe pods hello-k8s
+ETCDCTL_API=3 etcdctl --cacert="/etc/kubernetes/pki/etcd/ca.crt"  --cert="/etc/kubernetes/pki/etcd/server.crt" --key="/etc/kubernetes/pki/etcd/server.key" endpoint status
+
 ```
 
-## Let's Deploy our newly built PythonWeb App.
+## Checking the ETCD Prefix
 ```
-kubectl run mypythonwebapp --image=amitvashist7/mypywebapp:v3 --port=8081
+ETCDCTL_API=3 etcdctl --cacert="/etc/kubernetes/pki/etcd/ca.crt"  --cert="/etc/kubernetes/pki/etcd/server.crt" --key="/etc/kubernetes/pki/etcd/server.key" get / --prefix --keys-only
+
 ```
-```
-kubectl get pods
-NAME             READY   STATUS    RESTARTS   AGE
-hello-k8s        1/1     Running   0          6m22s
-mypythonwebapp   1/1     Running   0          4m58s
-```
+
