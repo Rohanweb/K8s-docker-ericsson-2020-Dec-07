@@ -852,3 +852,56 @@
   852  kubectl delete -f 12-Service-Discovery/
   853  ls
   854  history > Day5_History.txt 
+  855  cd ..
+  856  ls
+  857  git add . ; git commit -m "12-Service-Discovery"; git push 
+  858  ls
+  859  cd 02-Kubernetes/
+  860  ls
+  861  ll
+  862  mkdir 13-ConfigMap
+  863  cd 13-ConfigMap/
+  864  ls
+  865  vim reverseproxy.conf
+  866  ls
+  867  vim mult-pod-deployment.yaml
+  868  ls
+  869  vim nginx-service.yaml
+  870  ls
+  871  ll
+  872  cat mult-pod-deployment.yaml 
+  873  cat reverseproxy.conf 
+  874  cat nginx-service.yaml 
+  875  kubectl get pods 
+  876  kubectl get svc 
+  877  kubectl create configmap --help 
+  878  cat mult-pod-deployment.yaml 
+  879  kubectl create configmap nginx-config --from-file=reverseproxy.conf 
+  880  kubectl get configmap
+  881  kubectl describe configmap nginx-config
+  882  ls
+  883  cd ..
+  884  kubectl create -f 13-ConfigMap/
+  885  kubectl get pods,svc -o wide 
+  886  kubectl exec -it helloworld-nginx -c k8s-demo -- bash
+  887  kubectl exec -it helloworld-nginx -c nginx -- bash
+  888  kubectl edit configmap 
+  889  kubectl exec -it helloworld-nginx -c nginx -- cat /etc/nginx/conf.d/reverseproxy.conf
+  890  kubectl edit configmap 
+  891  kubectl exec -it helloworld-nginx -c nginx -- cat /etc/nginx/conf.d/reverseproxy.conf
+  892  kubectl edit configmap 
+  893  kubectl exec -it helloworld-nginx -c nginx -- cat /etc/nginx/conf.d/reverseproxy.conf
+  894  kubectl edit configmap 
+  895  kubectl exec -it helloworld-nginx -c nginx -- cat /etc/nginx/conf.d/reverseproxy.conf
+  896  kubectl edit configmap 
+  897  kubectl exec -it helloworld-nginx -c nginx -- cat /etc/nginx/conf.d/reverseproxy.conf
+  898  kubectl edit configmap 
+  899  kubectl describe configmap 
+  900  kubectl exec -it helloworld-nginx -c nginx -- cat /etc/nginx/conf.d/reverseproxy.conf
+  901  kubectl exec -it helloworld-nginx -c nginx -- bash
+  902  kubectl edit configmap 
+  903  cd ../
+  904  ls
+  905  cd 02-Kubernetes/
+  906  ls
+  907  history > Day5_History.txt 
