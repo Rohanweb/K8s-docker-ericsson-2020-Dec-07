@@ -642,47 +642,98 @@
   642  ls
   643  cd K8s-docker-ericsson-2020-Dec-07/
   644  ls
-  645  cd 02-Kubernetes/
-  646  ls
-  647  mkdir 10-Wordpress-Multi-Container-Pod
-  648  cd 10-Wordpress-Multi-Container-Pod/
-  649  ls
-  650  kubectl delete -f ../09-Secrets/
-  651  kubectl get secrets 
-  652  kubectl delete secrets my-secret
-  653  kubectl get secrets 
-  654  kubectl get pods 
+  645  kubectl create -f 02-Kubernetes/10-Wordpress-Multi-Container-Pod/
+  646  kubectl get pods 
+  647  kubectl exec -it wordpress-deployment-7d4896594c-2rqpx -c wordpress -- bash
+  648  ls
+  649  cd 02-Kubernetes/
+  650  ls
+  651  cd 10-Wordpress-Multi-Container-Pod/
+  652  ls
+  653  vim README.md 
+  654  cd ../../
   655  ls
-  656  vim wordpress-secrets.yml
-  657  vim wordpress-service.yml
-  658  vim wordpress-deployment.yml
-  659  echo  -n "Pass@word1234" | base64
-  660  echo  -n "password" | base64
-  661  vim wordpress-secrets.yml 
+  656  git add . ; git commit -m "09-Secrets"; git push 
+  657  kubectl exec -it wordpress-deployment-7d4896594c-2rqpx -c wordpress -- bash
+  658  ls
+  659  cd 02-Kubernetes/
+  660  ls
+  661  mkdir 12-DNS
   662  ls
-  663  vim wordpress-service.yml 
+  663  cd 12-DNS/
   664  ls
-  665  vim wordpress-deployment.yml 
-  666  ls
-  667  cd ..
-  668  ls
-  669  kubectl create -f 10-Wordpress-Multi-Container-Pod/
-  670  kubectl get deploy,svc,pod
-  671  kubectl get pod
-  672  kubectl describe pod
-  673  kubectl get deploy,svc,pod
-  674  kubectl get pods 
-  675  kubectl exec -it wordpress-deployment-7d4896594c-xdfxj -c mysql -- mysql -u root -p 
-  676  ls
-  677  kubectl delete -f 10-Wordpress-Multi-Container-Pod/
+  665  echo "********************* DNS *************************"
+  666  kubectl get pods -n kube-system
+  667  kubectl get svc -n kube-system
+  668  vim busybox.yaml
+  669  ls
+  670  kubectl create -f busybox.yaml 
+  671  kubectl get pods 
+  672  kubectl get pods -o wide 
+  673  kubectl exec -it busybox  -- cat /etc/resolv.conf 
+  674  kubectl exec -it wordpress-deployment-7d4896594c-2rqpx -c wordpress  -- cat /etc/resolv.conf 
+  675  kubectl get svc 
+  676  kubectl exec -it busybox  -- nslookup wordpress-service
+  677  kubectl exec -it busybox  -- nslookup 10.103.37.103   
   678  ls
-  679  history 
-  680  vim 10-Wordpress-Multi-Container-Pod/README.md
-  681  ls
-  682  cd ..
-  683  ls
-  684  git add . ; git commit -m "10-Wordpress-Multi-Container-Pod"; git push 
-  685  ls
-  686  cat 02-Kubernetes/10-Wordpress-Multi-Container-Pod/README.md 
-  687  ls
-  688  history >  02-Kubernetes/Day5_History.txt
+  679  kubectl get svc -n kube-system
+  680  kubectl get pods -n kube-system
+  681  kubectl  delete pod coredns-66bff467f8-frtpt coredns-66bff467f8-lwqwf
+  682  kubectl  delete pod coredns-66bff467f8-frtpt coredns-66bff467f8-lwqwf -n kube-system
+  683  kubectl get pods -n kube-system
+  684  kubectl exec -it busybox  -- nslookup wordpress-service
+  685  kubectl get svc 
+  686  kubectl exec -it busybox  -- ping 10.103.37.103   
+  687  ip addr 
+  688  kubectl get pods 
+  689  kubectl get pods -o wide 
+  690  kubectl  get svc 
+  691  kubectl exec -it busybox  -- ping 192.168.118.71   
+  692  kubectl exec -it busybox  -- ping 192.168.36.200   
+  693  kubectl exec -it busybox  -- ping 10.96.0.1
+  694  kubectl get ns 
+  695  kubectl get np 
+  696  ls
+  697  vim busybox.yaml
+  698  vim busybox-headless.yaml
+  699  ls
+  700  kubectl create -f busybox-headless.yaml 
+  701  kubectl get pods 
+  702  kubectl delete -f ../10-Wordpress-Multi-Container-Pod/
+  703  kubectl get pods 
+  704  kubectl get svc 
+  705  kubectl exec -it busybox  -- nslookup busybox1
+  706  kubectl get pods -n kube-system
+  707  kubectl delete pod coredns-66bff467f8-59lgm coredns-66bff467f8-b7tr9 -n kube-system
+  708  kubectl exec -it busybox  -- nslookup busybox1
+  709  kubectl get svc 
+  710  kubectl exec -it busybox  -- nslookup busybox1.default-subdomain
+  711  kubectl exec -it busybox  -- nslookup default-subdomain
+  712  kubectl exec -it busybox  -- nslookup 192.168.36.205 
+  713  kubectl exec -it busybox  -- nslookup busybox-2.default-subdomain.default.svc.cluster.local
+  714  ls
+  715  kubectl exec -it busybox  --cat /etc/resolv.com
+  716  kubectl exec -it busybox  --cat /etc/resolv.conf
+  717  kubectl exec -it busybox  -- cat /etc/resolv.conf
+  718  kubectl exec -it busybox1  -- cat /etc/resolv.conf
+  719  kubectl exec -it busybox2  -- cat /etc/resolv.conf
+  720  ls
+  721  vim custom-dns-setting.yaml
+  722  ls
+  723  kubectl create -f custom-dns-setting.yaml
+  724  kubectl get pods 
+  725  kubectl exec -it custom-dns-example  -- cat /etc/resolv.conf
+  726  kubectl exec -it busybox2  -- cat /etc/resolv.conf
+  727  kubectl get pods -n kube-system
+  728  kubectl get svc -n kube-system
+  729  kubectl exec -it etcd-k8s-master -n kube-system -- cat /etc/resolv.conf
+  730  ls
+  731  cd ..
+  732  ls
+  733  cd 12-DNS/
+  734  ls
+  735  history 
+  736  ls
+  737  cd ..
+  738  ls
+  739  history > Day5_History.txt 
