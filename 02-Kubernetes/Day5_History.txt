@@ -737,3 +737,118 @@
   737  cd ..
   738  ls
   739  history > Day5_History.txt 
+  740  cd ..
+  741  ls
+  742  git add . ; git commit -m "12-DNS"; git push 
+  743  ls
+  744  cd 02-Kubernetes/
+  745  ls
+  746  ll
+  747  mv 12-DNS 11-DNS
+  748  mkdir 12-Service-Discovery
+  749  ls
+  750  cd 12-Service-Discovery/
+  751  ls
+  752  vim database-service.yml
+  753  vim database.yaml
+  754  ls
+  755  vim helloworld-app-service.yml
+  756  vim helloworld-db-app.yml
+  757  ls
+  758  vim secrets.yml
+  759  ls
+  760  cat secrets.yml 
+  761  ls
+  762  cat database.yaml 
+  763  ls
+  764  cat database-service.yml 
+  765  ls
+  766  cat helloworld-db-app.yml 
+  767  ls
+  768  cat helloworld-app-service.yml 
+  769  ls
+  770  cat secrets.yml 
+  771  ls
+  772  cd ..
+  773  ls
+  774  kubectl get pods 
+  775  kubectl delete -f 11-DNS/
+  776  ls
+  777  cd 12-Service-Discovery/
+  778  ls
+  779  cat secrets.yml 
+  780  cat database.yaml 
+  781  cat helloworld-db-app.yml 
+  782  cat database-service.yml 
+  783  ls
+  784  kubectl create -f secrets.yml 
+  785  kubectl create -f database.yaml 
+  786  kubectl create -f database-service.yml 
+  787  kubectl get pods 
+  788  kubectl get svc 
+  789  kubectl create -f helloworld-db-app.yml 
+  790  kubectl get pods 
+  791  kubectl describe pod helloworld-deployment-7c557cd984-4wklh
+  792  kubectl get pods 
+  793  kubectl create -f helloworld-app-service.yml 
+  794  kubectl get pods 
+  795  kubectl get svc 
+  796  kubectl get pods -o wide
+  797  kubectl get deploy 
+  798  kubectl scale --replicas=1  deploy helloworld-deployment
+  799  kubectl get deploy 
+  800  kubectl get pods -o wide
+  801  kubectl delete pod k8s-worker-01
+  802  kubectl get pods -o wide
+  803  kubectl delete pod helloworld-deployment-7c557cd984-fmmhd
+  804  kubectl get pods -o wide
+  805  kubectl get svc 
+  806  kubectl get pods -o wide
+  807  kubectl get pods -n kube-system
+  808  kubectl delete pod coredns-66bff467f8-4fnkf coredns-66bff467f8-cc4df -n kube-system
+  809  kubectl get pods -o wide
+  810  kubectl delete pod helloworld-deployment-7c557cd984-gtw8n
+  811  kubectl get pods -o wide
+  812  ls
+  813  kubectl get pods 
+  814  kubectl describe  pods helloworld-deployment-7c557cd984-k7brg
+  815  kubectl log  pods helloworld-deployment-7c557cd984-k7brg
+  816  kubectl logs  pods helloworld-deployment-7c557cd984-k7brg
+  817  kubectl logs helloworld-deployment-7c557cd984-k7brg
+  818  kubectl get pods 
+  819  kubectl get svc 
+  820  ls
+  821  kubectl get pods 
+  822  kubectl get networkpolicy 
+  823  kubectl get networkpolicy -n kube-system
+  824  ls
+  825  kubectl get pods 
+  826  kubectl get deploy 
+  827  kubectl scale --replicas=3 helloworld-deployment
+  828  kubectl scale --replicas=3 deploy helloworld-deployment
+  829  kubectl get deploy 
+  830  kubectl get pods 
+  831  kubectl logs helloworld-deployment-7c557cd984-2mcct
+  832  kubectl delete pod helloworld-deployment-7c557cd984-k7brg
+  833  kubectl get pods 
+  834  kubectl get pods -o wide 
+  835  kubectl scale --replicas=2 deploy helloworld-deployment
+  836  kubectl get pods -o wide 
+  837  kubectl scale --replicas=1 deploy helloworld-deployment
+  838  kubectl get pods -o wide 
+  839  kubectl delete helloworld-deployment-7c557cd984-2mcct
+  840  kubectl get pods -o wide 
+  841  kubectl delete pod helloworld-deployment-7c557cd984-2mcct
+  842  kubectl get pods -o wide 
+  843  kubectl exec -it database -- mysql -u root -p                              
+  844  ls
+  845  cd ..
+  846  ls
+  847  history > Day5_History.txt 
+  848  ls
+  849  cd ..
+  850  ls
+  851  cd 02-Kubernetes/
+  852  kubectl delete -f 12-Service-Discovery/
+  853  ls
+  854  history > Day5_History.txt 
